@@ -11,13 +11,13 @@ public class PlayerController implements Controller {
   private final Scene scene;
   private final HashMap<KeyCode, Events> keyMap;
   private final HashMap<Events, Consumer<Integer>> eventFnMap;
-  private final HashMap<Events, Integer> eventScaleMap;
+  private final HashMap<KeyCode, Integer> keyScaleMap;
 
   public PlayerController(final Scene scene) {
     this.scene = scene;
     this.keyMap = new HashMap<>();    
     this.eventFnMap = new HashMap<>();    
-    this.eventScaleMap = new HashMap<>();    
+    this.keyScaleMap = new HashMap<>();
 
     this.scene.setOnKeyPressed(this::processInput);
   }
@@ -25,7 +25,7 @@ public class PlayerController implements Controller {
   @Override
   public void bindAxisKey(final Events eventName, final KeyCode keycode, final Integer scale) {
     this.keyMap.put(keycode, eventName);
-    this.eventScaleMap.put(eventName, scale);
+    this.keyScaleMap.put(keycode, scale);
   }
 
   @Override
@@ -34,9 +34,11 @@ public class PlayerController implements Controller {
   }
 
   private void processInput(final KeyEvent event) {
-    final Events eventName = this.keyMap.get(event.getCode());
+    final KeyCode code = event.getCode();
+
+    final Events eventName = this.keyMap.get(code);
+    final Integer scale = this.keyScaleMap.get(code);
     final Consumer<Integer> callback = this.eventFnMap.get(eventName);
-    final Integer scale = this.eventScaleMap.get(eventName);
 
     callback.accept(scale);
   }
