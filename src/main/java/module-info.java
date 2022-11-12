@@ -5,4 +5,5 @@ module ca.bcit.comp2522.termproject.essence {
 
     opens ca.bcit.comp2522.termproject.essence to javafx.fxml;
     exports ca.bcit.comp2522.termproject.essence;
+    exports ca.bcit.comp2522.termproject.essence.controllers;
 }
