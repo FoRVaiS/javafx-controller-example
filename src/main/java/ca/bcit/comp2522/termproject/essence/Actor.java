@@ -27,13 +27,13 @@ public class Actor {
 
     this.controller.bindAxisKey(Events.MOVE_X, KeyCode.D, 1);
     this.controller.bindAxisKey(Events.MOVE_X, KeyCode.A, -1);
-    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.W, 1);
-    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.S, -1);
+    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.W, -1);
+    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.S, 1);
 
     this.controller.bindAxisKey(Events.MOVE_X, KeyCode.RIGHT, 1);
     this.controller.bindAxisKey(Events.MOVE_X, KeyCode.LEFT, -1);
-    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.UP, 1);
-    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.DOWN, -1);
+    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.UP, -1);
+    this.controller.bindAxisKey(Events.MOVE_Y, KeyCode.DOWN, 1);
 
     this.controller.bindAxis(Events.MOVE_X, this::moveX);
     this.controller.bindAxis(Events.MOVE_Y, this::moveY);
