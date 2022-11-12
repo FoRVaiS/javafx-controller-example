@@ -33,6 +33,8 @@ public class HelloApplication extends Application {
         primaryStage.setTitle("AlienDirection");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        Engine.run();
     }
 
     public static void main(String[] args) {
